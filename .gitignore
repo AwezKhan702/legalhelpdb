@@ -1,0 +1,16 @@
+.env
+.idea/
+.vscode/
+*.log
+*.swp
+.DS_Store
+Thumbs.db
+
+# Local Postgres data
+pgdata/
+data/
+*.dump
+*.backup
+
+# Editor / OS
+node_modules/

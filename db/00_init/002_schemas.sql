@@ -1,0 +1,28 @@
+-- PostgreSQL schemas mapped from FSD section 42 (high-level data model).
+CREATE SCHEMA IF NOT EXISTS identity;
+CREATE SCHEMA IF NOT EXISTS catalog;
+CREATE SCHEMA IF NOT EXISTS authorities;
+CREATE SCHEMA IF NOT EXISTS cases;
+CREATE SCHEMA IF NOT EXISTS documents;
+CREATE SCHEMA IF NOT EXISTS consultations;
+CREATE SCHEMA IF NOT EXISTS drafts;
+CREATE SCHEMA IF NOT EXISTS billing;
+CREATE SCHEMA IF NOT EXISTS comms;
+CREATE SCHEMA IF NOT EXISTS followups;
+CREATE SCHEMA IF NOT EXISTS research;
+CREATE SCHEMA IF NOT EXISTS content;
+CREATE SCHEMA IF NOT EXISTS audit;
+
+COMMENT ON SCHEMA identity IS 'USER, USER_ROLE, CLIENT_PROFILE, ORGANIZATION';
+COMMENT ON SCHEMA catalog IS 'SERVICE, PACKAGE, PRICING and master categories';
+COMMENT ON SCHEMA authorities IS 'AUTHORITY directory and jurisdiction';
+COMMENT ON SCHEMA cases IS 'CASE and related case-file entities';
+COMMENT ON SCHEMA documents IS 'DOCUMENT, versions, tags, access logs';
+COMMENT ON SCHEMA consultations IS 'CONSULTATION, APPOINTMENT, notes, summaries';
+COMMENT ON SCHEMA drafts IS 'DRAFT, DRAFT_VERSION, CLIENT_COMMENT, APPROVAL';
+COMMENT ON SCHEMA billing IS 'PAYMENT, INVOICE, TRANSACTION, REFUND';
+COMMENT ON SCHEMA comms IS 'NOTIFICATION and MESSAGE';
+COMMENT ON SCHEMA followups IS 'FOLLOW_UP reminders and completion';
+COMMENT ON SCHEMA research IS 'LEGAL_REFERENCE and research support';
+COMMENT ON SCHEMA content IS 'Legal awareness / CMS content';
+COMMENT ON SCHEMA audit IS 'AUDIT_LOG for sensitive actions';
