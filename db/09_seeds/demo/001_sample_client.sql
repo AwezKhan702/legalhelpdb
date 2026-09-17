@@ -1,0 +1,2 @@
+-- Optional sample rows for local UI work. Not applied on Docker first boot.
+-- Run manually: psql -f db/09_seeds/demo/001_sample_client.sql

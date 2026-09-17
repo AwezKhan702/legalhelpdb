@@ -1,0 +1,60 @@
+INSERT INTO catalog.service_categories (code, name, sort_order) VALUES
+    ('legal_help', 'Legal Help', 10),
+    ('document_drafting', 'Document Drafting', 20),
+    ('rti_transparency', 'RTI & Transparency', 30),
+    ('government_admin', 'Government & Administration', 40),
+    ('police_criminal', 'Police & Criminal Matters', 50),
+    ('banking_finance', 'Banking & Finance', 60),
+    ('labour_service', 'Labour & Service', 70),
+    ('court_documentation', 'Court Documentation', 80),
+    ('document_services', 'Document Services', 90),
+    ('legal_research', 'Legal Research', 100)
+ON CONFLICT (code) DO NOTHING;
+
+INSERT INTO catalog.services (category_id, code, name)
+SELECT c.id, s.code, s.name
+FROM (VALUES
+    ('legal_help', 'understand_problem', 'Understand My Problem'),
+    ('legal_help', 'talk_to_expert', 'Talk to an Expert'),
+    ('document_drafting', 'legal_notice', 'Legal Notice'),
+    ('document_drafting', 'complaint', 'Complaint'),
+    ('document_drafting', 'representation', 'Representation'),
+    ('document_drafting', 'police_complaint', 'Police Complaint'),
+    ('document_drafting', 'written_submission', 'Written Submission'),
+    ('document_drafting', 'written_arguments', 'Written Arguments'),
+    ('rti_transparency', 'rti_application', 'RTI Application'),
+    ('rti_transparency', 'rti_first_appeal', 'RTI First Appeal'),
+    ('rti_transparency', 'rti_followup', 'RTI Follow-up'),
+    ('rti_transparency', 'action_taken_report', 'Action Taken Report'),
+    ('government_admin', 'department_complaint', 'Department Complaint'),
+    ('government_admin', 'admin_representation', 'Administrative Representation'),
+    ('government_admin', 'inquiry_request', 'Inquiry Request'),
+    ('government_admin', 'admin_escalation', 'Escalation'),
+    ('police_criminal', 'fir_application', 'FIR Application'),
+    ('police_criminal', 'jabab_statement', 'Jabab / Statement'),
+    ('police_criminal', 'police_representation', 'Police Representation'),
+    ('police_criminal', 'womens_bharosa_cell', 'Women''s / Bharosa Cell'),
+    ('banking_finance', 'banking_complaint', 'Banking Complaint'),
+    ('banking_finance', 'loan_issue', 'Loan Issue'),
+    ('banking_finance', 'financial_irregularity', 'Financial Irregularity'),
+    ('banking_finance', 'sarfaesi', 'SARFAESI'),
+    ('labour_service', 'gratuity', 'Gratuity'),
+    ('labour_service', 'salary', 'Salary'),
+    ('labour_service', 'termination', 'Termination'),
+    ('labour_service', 'leave_encashment', 'Leave Encashment'),
+    ('labour_service', 'disciplinary_matter', 'Disciplinary Matter'),
+    ('court_documentation', 'case_summary', 'Case Summary'),
+    ('court_documentation', 'chronology', 'Chronology'),
+    ('court_documentation', 'evidence_index', 'Evidence Index'),
+    ('court_documentation', 'court_written_arguments', 'Written Arguments'),
+    ('court_documentation', 'writ_support', 'Writ Preparation Support'),
+    ('document_services', 'review', 'Review'),
+    ('document_services', 'correction', 'Correction'),
+    ('document_services', 'translation', 'Translation'),
+    ('document_services', 'formatting', 'Formatting'),
+    ('legal_research', 'provision_research', 'Provision Research'),
+    ('legal_research', 'case_research', 'Case Research'),
+    ('legal_research', 'supporting_material', 'Supporting Material')
+) AS s(category_code, code, name)
+JOIN catalog.service_categories c ON c.code = s.category_code
+ON CONFLICT (code) DO NOTHING;

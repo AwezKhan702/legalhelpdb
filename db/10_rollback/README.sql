@@ -1,0 +1,2 @@
+-- Intentionally empty. Add down-scripts here when a change needs an explicit rollback.
+-- Rollback files are never applied by docker-init or scripts/apply.*
